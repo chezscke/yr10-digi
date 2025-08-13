@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the amazing world of hibiscus</title>
+    <!-- tailwind css cdn for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // configure tailwind css to use a custom pink palette
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'light-pink': '#FCE4EC', // very light pink for background
+                        'soft-pink': '#F8BBD0',  // slightly pinker for accents
+                        'medium-pink': '#F48FB1', // pleasant pink for highlights
+                        'dark-pink': '#F06292',  // deeper pink for text/buttons
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'], // utilizing the inter font
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* custom styles for the website */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FCE4EC; /* light pink background */
+        }
+        .page-section {
+            display: none; /* hide all page sections by default */
+        }
+        .page-section.active {
+            display: block; /* show the active page section */
+        }
+        .nav-link.active {
+            @apply border-b-2 border-dark-pink text-dark-pink; /* active nav link style */
+        }
+    </style>
+</head>
+<body class="bg-light-pink text-gray-800 antialiased">
+    <!-- navigation bar -->
+    <nav class="bg-soft-pink p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white mb-2 md:mb-0 rounded-lg p-2 hover:bg-medium-pink transition-colors">
+                🌺 hibiscus haven
+            </a>
+            <div class="flex flex-wrap justify-center space-x-4 md:space-x-8">
+                <a href="#home" class="nav-link text-white text-lg py-2 px-4 rounded-lg hover:bg-medium-pink transition-colors active" onclick="showPage('home')">home</a>
+                <a href="#about" class="nav-link text-white text-lg py-2 px-4 rounded-lg hover:bg-medium-pink transition-colors" onclick="showPage('about')">about</a>
+                <a href="#varieties" class="nav-link text-white text-lg py-2 px-4 rounded-lg hover:bg-medium-pink transition-colors" onclick="showPage('varieties')">varieties</a>
+                <a href="#care" class="nav-link text-white text-lg py-2 px-4 rounded-lg hover:bg-medium-pink transition-colors" onclick="showPage('care')">care</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- main content area -->
+    <main class="container mx-auto p-4 md:p-8">
+
+        <!-- home page section -->
+        <section id="home" class="page-section active bg-white p-6 md:p-10 rounded-xl shadow-lg mb-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-dark-pink mb-6 text-center">welcome to the remarkable world of hibiscus!</h1>
+            <div class="flex flex-col md:flex-row items-center md:space-x-8">
+                <img src="https://placehold.co/600x400/F06292/FFFFFF?text=stunning+hibiscus" alt="vibrant hibiscus flower" class="w-full md:w-1/2 rounded-xl shadow-md mb-6 md:mb-0">
+                <div class="md:w-1/2">
+                    <p class="text-lg leading-relaxed text-gray-700 mb-4">
+                        discover the captivating beauty and rich history of the hibiscus flower. known for its large, trumpet-shaped blooms and vibrant colors, the hibiscus is a true centerpiece in any garden or landscape.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-700">
+                        from tropical beaches to temperate gardens, these versatile flowers add a touch of exotic elegance wherever they flourish. join us as we explore the various types, their proper care, and their significant cultural roles.
+                    </p>
+                    <button class="mt-6 bg-dark-pink text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-medium-pink transition-all duration-300 transform hover:scale-105" onclick="showPage('about')">
+                        learn more about hibiscus
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- about page section -->
+        <section id="about" class="page-section bg-white p-6 md:p-10 rounded-xl shadow-lg mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-dark-pink mb-6 text-center">understanding the hibiscus</h2>
+            <div class="flex flex-col md:flex-row-reverse items-center md:space-x-reverse md:space-x-8">
+                <img src="https://placehold.co/600x400/F48FB1/FFFFFF?text=hibiscus+cultural+significance" alt="hibiscus cultural representation" class="w-full md:w-1/2 rounded-xl shadow-md mb-6 md:mb-0">
+                <div class="md:w-1/2">
+                    <p class="text-lg leading-relaxed text-gray-700 mb-4">
+                        the hibiscus, a member of the malvaceae family, is native to tropical and subtropical regions across the globe. it has been cultivated for centuries in areas like asia, africa, and the pacific islands.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-700 mb-4">
+                        culturally, the hibiscus carries diverse symbolism. in hawaii, it serves as the state flower, representing royalty, power, and respect. in malaysia, it embodies bravery and vitality, while in china, it signifies wealth and renown. its transient beauty, with blooms often lasting only a single day, also conveys a message of appreciating the present moment.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-700">
+                        beyond its ornamental appeal, various parts of the hibiscus plant are utilized in traditional medicine, teas, and even paper production. its vibrant presence truly enriches both natural environments and human cultures.
+                    </p>
+                    <button class="mt-6 bg-dark-pink text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-medium-pink transition-all duration-300 transform hover:scale-105" onclick="showPage('varieties')">
+                        explore varieties
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- varieties page section -->
+        <section id="varieties" class="page-section bg-white p-6 md:p-10 rounded-xl shadow-lg mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-dark-pink mb-6 text-center">notable hibiscus varieties</h2>
+            <p class="text-lg leading-relaxed text-gray-700 mb-8 text-center">
+                there are hundreds of hibiscus species and countless cultivated varieties, each possessing distinct characteristics. here are a few well-known types:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- variety 1 -->
+                <div class="bg-soft-pink p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+                    <img src="https://placehold.co/400x300/FCE4EC/F06292?text=chinese+hibiscus" alt="chinese hibiscus" class="w-full h-48 object-cover rounded-md mb-4 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-dark-pink mb-2">hibiscus rosa-sinensis (chinese hibiscus)</h3>
+                    <p class="text-gray-700 text-base">
+                        this is the most prevalent tropical hibiscus, recognized for its large, ostentatious flowers in a broad spectrum of colors including red, pink, yellow, and orange. it thrives in warm climates.
+                    </p>
+                </div>
+                <!-- variety 2 -->
+                <div class="bg-soft-pink p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+                    <img src="https://placehold.co/400x300/FCE4EC/F06292?text=rose+of+sharon" alt="rose of sharon" class="w-full h-48 object-cover rounded-md mb-4 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-dark-pink mb-2">hibiscus syriacus (rose of sharon)</h3>
+                    <p class="text-gray-700 text-base">
+                        a hardy, deciduous shrub that exhibits tolerance to colder climates. its blooms are smaller but plentiful, appearing in late summer in shades of white, pink, purple, and blue.
+                    </p>
+                </div>
+                <!-- variety 3 -->
+                <div class="bg-soft-pink p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+                    <img src="https://placehold.co/400x300/FCE4EC/F06292?text=swamp+mallow" alt="swamp mallow" class="w-full h-48 object-cover rounded-md mb-4 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-dark-pink mb-2">hibiscus moscheutos (swamp mallow)</h3>
+                    <p class="text-gray-700 text-base">
+                        distinguished by its exceptionally large, dinner-plate sized flowers, this perennial is indigenous to north american wetlands. its colors include white, pink, and red.
+                    </p>
+                </div>
+                <!-- variety 4 -->
+                <div class="bg-soft-pink p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+                    <img src="https://placehold.co/400x300/FCE4EC/F06292?text=fringed+hibiscus" alt="fringed hibiscus" class="w-full h-48 object-cover rounded-md mb-4 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-dark-pink mb-2">hibiscus schizopetalus (fringed hibiscus)</h3>
+                    <p class="text-gray-700 text-base">
+                        a tropical species featuring uniquely delicate, deeply cut, and pendulous flowers, often in hues of red and pink. it imparts an exotic appeal.
+                    </p>
+                </div>
+            </div>
+            <button class="mt-8 mx-auto block bg-dark-pink text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-medium-pink transition-all duration-300 transform hover:scale-105" onclick="showPage('care')">
+                cultivating hibiscus
+            </button>
+        </section>
+
+        <!-- care page section -->
+        <section id="care" class="page-section bg-white p-6 md:p-10 rounded-xl shadow-lg mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-dark-pink mb-6 text-center">proper care for your hibiscus</h2>
+            <div class="flex flex-col md:flex-row items-start md:space-x-8">
+                <img src="https://placehold.co/600x400/F8BBD0/F06292?text=hibiscus+care+guidelines" alt="gardening tools near a hibiscus plant" class="w-full md:w-1/2 rounded-xl shadow-md mb-6 md:mb-0">
+                <div class="md:w-1/2">
+                    <p class="text-lg leading-relaxed text-gray-700 mb-4">
+                        to ensure your hibiscus flourishes and produces abundant blooms, consider these essential care guidelines:
+                    </p>
+                    <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
+                        <li><strong>sunlight:</strong> hibiscus prefers full sun, requiring at least 6 hours of direct sunlight daily for optimal flowering.</li>
+                        <li><strong>soil:</strong> plant in well-draining soil that is rich in organic matter. a slightly acidic to neutral ph (6.0-7.0) is ideal.</li>
+                        <li><strong>watering:</strong> maintain consistently moist soil, particularly during warm periods. avoid allowing it to dry out completely. reduce watering during cooler months.</li>
+                        <li><strong>fertilizing:</strong> apply fertilizer regularly throughout the growing season (spring to fall) using a balanced formula or one high in potassium.</li>
+                        <li><strong>pruning:</strong> prune in late winter or early spring to foster bushier growth and encourage more blooms. remove any dead or weakened branches.</li>
+                        <li><strong>pest management:</strong> monitor for common pests such as aphids, spider mites, and whiteflies. treat with insecticidal soap if necessary.</li>
+                        <li><strong>winter protection:</strong> in regions with colder climates, tropical hibiscus varieties should be moved indoors before the initial frost.</li>
+                    </ul>
+                    <p class="text-lg leading-relaxed text-gray-700 mt-4">
+                        with diligent care, your hibiscus will provide a spectacular floral display year after year!
+                    </p>
+                    <button class="mt-6 bg-dark-pink text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-medium-pink transition-all duration-300 transform hover:scale-105" onclick="showPage('home')">
+                        return to home
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- footer -->
+    <footer class="bg-soft-pink p-6 text-center text-white text-sm mt-8">
+        <p>&copy; 2025 hibiscus haven. all rights reserved. crafted with dedication for floral enthusiasts.</p>
+    </footer>
+
+    <script>
+        // javascript for page navigation
+        function showPage(pageId) {
+            // get all page sections
+            const pages = document.querySelectorAll('.page-section');
+            // hide all pages
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // show the requested page
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.add('active');
+            }
+
+            // update active navigation link styling
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            const activeNavLink = document.querySelector(`.nav-link[href="#${pageId}"]`);
+            if (activeNavLink) {
+                activeNavLink.classList.add('active');
+            }
+
+            // scroll to the top of the page smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // handle initial page load from url hash
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1); // get hash without '#'
+            if (hash && document.getElementById(hash)) {
+                showPage(hash); // show page if hash exists and corresponds to a section
+            } else {
+                showPage('home'); // default to home page if no valid hash
+            }
+        });
+    </script>
+</body>
+</html>
